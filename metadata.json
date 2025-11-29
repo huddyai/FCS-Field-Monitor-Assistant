@@ -1,0 +1,7 @@
+{
+  "name": "FCS Field Monitor Assistant",
+  "description": "Voice-enabled AI assistant for FirstCarbon Solutions field monitors to automate data collection and reporting.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

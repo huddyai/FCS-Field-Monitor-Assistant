@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FCS Field Monitor Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              fcs: {
+                50: '#f0fdfa', // Teal 50
+                100: '#ccfbf1', // Teal 100
+                200: '#99f6e4', // Teal 200
+                500: '#14b8a6', // Teal 500 (Bright Accent)
+                600: '#0d9488', // Teal 600
+                700: '#0f766e', // Teal 700 (Primary Action)
+                800: '#115e59', // Teal 800 (Darker Brand)
+                900: '#134e4a', // Teal 900 (Deepest)
+                dark: '#0f172a', // Slate 900 (Text)
+              },
+              soil: {
+                500: '#a0522d',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+              'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+              'card-hover': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      /* Custom scrollbar for data tables */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+
+      /* Print Styles for PDF Export */
+      @media print {
+        @page { margin: 1cm; size: auto; }
+        
+        body, html {
+          background-color: white !important;
+          height: auto !important;
+          width: 100% !important;
+          overflow: visible !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        #root {
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        /* Force Main Containers to Expand */
+        .min-h-screen { min-height: 0 !important; }
+        .h-full { height: auto !important; }
+        .overflow-hidden { overflow: visible !important; }
+        .overflow-y-auto { overflow: visible !important; height: auto !important; }
+        
+        /* Hide Scrollbars */
+        ::-webkit-scrollbar { display: none; }
+
+        /* Ensure Page Breaks behave */
+        .break-inside-avoid {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-50 text-slate-900 antialiased">
+    <div id="root"></div>
+  </body>
+</html>
