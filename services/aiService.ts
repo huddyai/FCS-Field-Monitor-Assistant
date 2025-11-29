@@ -3,7 +3,14 @@
 import { GoogleGenAI, Type, GenerateContentResponse } from "@google/genai";
 import { CategoryId, CategoryState, FieldReport, JobState } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Read API key from Vite env (Netlify/browser)
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string;
+
+if (!apiKey) {
+  console.error("❌ Missing VITE_GEMINI_API_KEY environment variable");
+}
+
+const ai = new GoogleGenAI({ apiKey });
 
 const MODEL_NAME = "gemini-2.5-flash";
 
